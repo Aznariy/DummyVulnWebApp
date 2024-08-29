@@ -1,0 +1,9 @@
+﻿@page
+@model DummyVulnWebApp.Pages.DisplayMessageModel
+@{
+    ViewData["Title"] = "Message";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<a href="@Url.Action("Index", "Home")">Go back</a>
