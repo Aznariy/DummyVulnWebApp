@@ -20,11 +20,9 @@ namespace DummyVulnWebApp.Controllers
             return View();
         }
 
-        // POST: Home/SaveInput
         [HttpPost]
         public async Task<IActionResult> SaveInput(string userInput)
         {
-            // Save the input to the database
             var input = new UserInput { InputValue = userInput };
             _context.UserInputs.Add(input);
             await _context.SaveChangesAsync();
@@ -33,7 +31,7 @@ namespace DummyVulnWebApp.Controllers
             return RedirectToAction("DisplayMessage", new { id = input.Id });
         }
 
-        // GET: Home/DisplayMessage
+        [HttpGet]
         public async Task<IActionResult> DisplayMessage(int id)
         {
             // Retrieve the input from the database using the ID
@@ -45,7 +43,7 @@ namespace DummyVulnWebApp.Controllers
             }
 
             // Display the message in the view
-            ViewBag.Message = $"You entered: {input.InputValue}";
+            ViewBag.Message = $"You entered: + {input.InputValue}";
             return View();
         }
     }

@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\pages\\checkuserexist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\pages\\checkuserexist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\pages\\displaymessage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\pages\\displaymessage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,10 +43,6 @@
       "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\pages\\checkuserexist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\pages\\checkuserexist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -62,50 +62,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DisplayMessage.cshtml",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Pages\\DisplayMessage.cshtml",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Pages\\DisplayMessage.cshtml",
               "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Pages\\DisplayMessage.cshtml",
               "RelativeToolTip": "DummyVulnWebApp\\Pages\\DisplayMessage.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-29T18:54:12.758Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\HomeController.cs",
               "RelativeToolTip": "DummyVulnWebApp\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-29T18:52:40.444Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
-              "RelativeToolTip": "DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T18:51:31.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "UserInput.cs",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Models\\UserInput.cs",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Models\\UserInput.cs",
@@ -113,12 +100,11 @@
               "RelativeToolTip": "DummyVulnWebApp\\Models\\UserInput.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T18:50:22.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-29T18:50:22.293Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "LdapController.cs",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\LdapController.cs",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Controllers\\LdapController.cs",
@@ -130,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Controllers\\ProductController.cs",
@@ -178,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Program.cs",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Program.cs",
@@ -186,25 +172,24 @@
               "RelativeToolTip": "DummyVulnWebApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T20:33:38.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T20:33:38.573Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Startup.cs",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Startup.cs",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Startup.cs",
               "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Startup.cs",
               "RelativeToolTip": "DummyVulnWebApp\\Startup.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBEAAACHAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAACHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T20:31:06.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "CheckUserExist.cshtml",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Pages\\CheckUserExist.cshtml",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\Pages\\CheckUserExist.cshtml",
@@ -212,11 +197,24 @@
               "RelativeToolTip": "DummyVulnWebApp\\Pages\\CheckUserExist.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-26T20:50:31.022Z"
+              "WhenOpened": "2024-08-26T20:50:31.022Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
+              "RelativeToolTip": "DummyVulnWebApp\\Context\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T18:51:31.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "DummyVulnWebApp.csproj",
               "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\DummyVulnWebApp.csproj",
               "RelativeDocumentMoniker": "DummyVulnWebApp\\DummyVulnWebApp.csproj",
