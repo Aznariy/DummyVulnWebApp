@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DummyVulnWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee837681bb11c4e26bcc0681f573e22868ab0388")]
 [assembly: System.Reflection.AssemblyProductAttribute("DummyVulnWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DummyVulnWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
