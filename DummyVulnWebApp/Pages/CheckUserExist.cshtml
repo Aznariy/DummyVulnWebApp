@@ -1,0 +1,31 @@
+﻿@page
+@model DummyVulnWebApp.Pages.CheckUserExistModel
+@{
+    ViewBag.Title = "Check User Existence";
+}
+
+<h2>Check User Existence</h2>
+
+@if (ViewBag.UserExists != null)
+{
+    <div class="alert @((bool)ViewBag.UserExists ? "alert-success" : "alert-danger")">
+        @ViewBag.Message
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        Enter a username to check its existence in the directory.
+    </div>
+}
+
+@using (Html.BeginForm("CheckUserExists", "Ldap", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.Label("Username")
+        @Html.TextBox("username", null, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Check</button>
+}
+
