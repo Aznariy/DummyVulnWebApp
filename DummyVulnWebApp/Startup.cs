@@ -1,4 +1,7 @@
-﻿using DummyVulnWebApp.Context;
+using DummyVulnWebApp.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace DummyVulnWebApp
@@ -14,11 +17,31 @@ namespace DummyVulnWebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Account/Login";
+            });
+
+            services.AddHsts(
+                options =>
+                {
+                    options.Preload = true;
+                    options.IncludeSubDomains = true;
+                    options.MaxAge = TimeSpan.FromDays(365);
+                });
+            services.AddAuthorization();
             services.AddDbContext<ApplicationDbContext>(options =>
                                                         options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
             services.AddSession();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -30,7 +53,6 @@ namespace DummyVulnWebApp
             else
             {
                 app.UseExceptionHandler("Home/Error");
-                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
@@ -48,7 +70,7 @@ namespace DummyVulnWebApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controllerhome}/{action=Index}/{Id}");
+                    pattern: "{controller=Account}/{action=Login}/{Id}");
             });
         }
     }
