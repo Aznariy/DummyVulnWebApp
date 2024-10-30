@@ -52,7 +52,7 @@
           "dependencies": {
             "ChilkatDnCore": {
               "target": "Package",
-              "version": "[9.5.0.87, )"
+              "version": "[10.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
