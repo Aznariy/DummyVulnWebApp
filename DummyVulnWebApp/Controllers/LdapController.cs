@@ -13,9 +13,8 @@ namespace DummyVulnWebApp.Controllers
 
             try
             {
-                // Define the LDAP path, domain, and filter with the username
                 string ldapPath = "LDAP://ldapservermma";
-                string ldapFilter = $"(sAMAccountName={username})"; // This assumes you're using sAMAccountName as the username
+                string ldapFilter = $"(sAMAccountName={username})";
 
                 using (DirectoryEntry entry = new DirectoryEntry(ldapPath))
                 using (DirectorySearcher searcher = new DirectorySearcher(entry))

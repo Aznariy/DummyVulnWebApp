@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\controllers\\ldapcontroller3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\controllers\\ldapcontroller3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\controllers\\ldapcontroller2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\controllers\\ldapcontroller2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|c:\\aznariyramazanov\\visualstudioprojects\\dummyvulnwebapp\\dummyvulnwebapp\\controllers\\ldapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CFFED01-806D-4B34-8EB6-37AEDA906AE1}|DummyVulnWebApp\\DummyVulnWebApp.csproj|solutionrelative:dummyvulnwebapp\\controllers\\ldapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LdapController3.cs",
+              "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\LdapController3.cs",
+              "RelativeDocumentMoniker": "DummyVulnWebApp\\Controllers\\LdapController3.cs",
+              "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\LdapController3.cs",
+              "RelativeToolTip": "DummyVulnWebApp\\Controllers\\LdapController3.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T17:01:08.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LdapController2.cs",
+              "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\LdapController2.cs",
+              "RelativeDocumentMoniker": "DummyVulnWebApp\\Controllers\\LdapController2.cs",
+              "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\LdapController2.cs",
+              "RelativeToolTip": "DummyVulnWebApp\\Controllers\\LdapController2.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T16:59:06.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LdapController.cs",
+              "DocumentMoniker": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\LdapController.cs",
+              "RelativeDocumentMoniker": "DummyVulnWebApp\\Controllers\\LdapController.cs",
+              "ToolTip": "C:\\AznariyRamazanov\\VisualStudioProjects\\DummyVulnWebApp\\DummyVulnWebApp\\Controllers\\LdapController.cs",
+              "RelativeToolTip": "DummyVulnWebApp\\Controllers\\LdapController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwBgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T16:56:50.164Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
