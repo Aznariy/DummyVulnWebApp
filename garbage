@@ -1,3 +1,4 @@
+from org.zaproxy.zap.authentication import AuthenticationMethodType
 from org.openqa.selenium.chrome import ChromeDriver
 from org.openqa.selenium.chrome import ChromeOptions
 from org.openqa.selenium.common.by import By
@@ -5,73 +6,87 @@ from org.openqa.selenium.common.keys import Keys
 from org.openqa.selenium.support.ui import WebDriverWait
 from org.openqa.selenium.support import expected_conditions as EC
 
-def authenticate(context, authenticationCredentials):
-    """
-    This function is required by ZAP for authentication.
-    It takes the context and authentication credentials as input.
-    """
+class TestAuthenticationMethod(AuthenticationMethodType):
+    def __init__(self):
+        super(TestAuthenticationMethod, self).__init__()
 
-    # Extract username and password from authenticationCredentials
-    USERNAME = authenticationCredentials.getParam("username")
-    PASSWORD = authenticationCredentials.getParam("password")
+    def getTypeName(self):
+        return "Test Authentication Script"
 
-    # Target website
-    TARGET_LOGIN_URL = "https://example.com/login"  # Modify this
+    def authenticate(self, helper, paramsValues):
+        """
+        This function is called by ZAP to perform authentication.
+        """
 
-    # CSS and XPATH Selectors (Modify as needed)
-    USERNAME_CSS_SELECTOR = "input#user"  # Adjust for your website
-    PASSWORD_CSS_SELECTOR = "input[type='password']"
-    SIGN_IN_XPATH = "//button[@id='sign-in']"
-    SUCCESS_ELEMENT_XPATH = "//div[@id='dashboard']"  # The element that confirms successful login
+        # Extract username and password from paramsValues
+        username = paramsValues.get("username")
+        password = paramsValues.get("password")
 
-    # Set Chrome Options for ZAP Proxy
-    chrome_options = ChromeOptions()
-    chrome_options.addArguments("--proxy-server=http://127.0.0.1:8080")
-    chrome_options.addArguments("--headless")  # Remove if you want to see browser actions
+        # Target website
+        target_login_url = "https://example.com/login"  # Modify this
 
-    # Initialize WebDriver (Chrome)
-    driver = ChromeDriver(chrome_options)
+        # CSS and XPath Selectors (Modify these for your website)
+        username_css_selector = "input#user"  # Adjust for your website
+        password_css_selector = "input[type='password']"
+        sign_in_xpath = "//button[@id='sign-in']"
+        success_element_xpath = "//div[@id='dashboard']"  # Element to confirm successful login
 
-    try:
-        # Step 1: Open login page
-        driver.get(TARGET_LOGIN_URL)
+        # Set Chrome Options for ZAP Proxy
+        chrome_options = ChromeOptions()
+        chrome_options.addArguments("--proxy-server=http://127.0.0.1:8080")
+        chrome_options.addArguments("--headless")  # Remove if you want to see browser actions
 
-        # Step 2: Input username using CSS Selector
-        username_field = driver.findElement(By.CSS_SELECTOR, USERNAME_CSS_SELECTOR)
-        username_field.sendKeys(USERNAME)
+        # Initialize WebDriver (Chrome)
+        driver = ChromeDriver(chrome_options)
 
-        # Step 3: Input password using CSS Selector
-        password_field = driver.findElement(By.CSS_SELECTOR, PASSWORD_CSS_SELECTOR)
-        password_field.sendKeys(PASSWORD)
+        try:
+            # Step 1: Open login page
+            driver.get(target_login_url)
 
-        # Step 4: Click the Sign In button using XPath
-        sign_in_button = driver.findElement(By.XPATH, SIGN_IN_XPATH)
-        sign_in_button.click()
+            # Step 2: Input username using CSS Selector
+            username_field = driver.findElement(By.CSS_SELECTOR, username_css_selector)
+            username_field.sendKeys(username)
 
-        # Step 5: Wait for a specific element to appear to confirm login success
-        wait = WebDriverWait(driver, 10)
-        wait.until(EC.presence_of_element_located((By.XPATH, SUCCESS_ELEMENT_XPATH)))
+            # Step 3: Input password using CSS Selector
+            password_field = driver.findElement(By.CSS_SELECTOR, password_css_selector)
+            password_field.sendKeys(password)
 
-        print("[+] Authentication successful!")
+            # Step 4: Click the Sign In button using XPath
+            sign_in_button = driver.findElement(By.XPATH, sign_in_xpath)
+            sign_in_button.click()
 
-        # Step 6: Retrieve session cookies (if needed)
-        cookies = driver.manage().getCookies()
-        session_token = None
-        for cookie in cookies:
-            if "session" in cookie.getName().lower():  # Modify based on actual session cookie name
-                session_token = cookie.getValue()
-                break
+            # Step 5: Wait for a specific element to appear to confirm login success
+            wait = WebDriverWait(driver, 10)
+            wait.until(EC.presence_of_element_located((By.XPATH, success_element_xpath)))
 
-        if session_token:
-            print("[+] Session Token:", session_token)
-            return session_token  # ZAP can use this for authenticated scanning
-        else:
-            print("[-] No session token found.")
+            print("[+] Authentication successful!")
 
-    except Exception as e:
-        print("[-] Authentication failed:", e)
-    finally:
-        driver.quit()
+            # Step 6: Retrieve session cookies (if needed)
+            cookies = driver.manage().getCookies()
+            session_token = None
+            for cookie in cookies:
+                if "session" in cookie.getName().lower():  # Modify based on actual session cookie name
+                    session_token = cookie.getValue()
+                    break
 
-    return None  # Returning None if authentication fails
+            if session_token:
+                print("[+] Session Token:", session_token)
+                return session_token  # ZAP can use this for authenticated scanning
+            else:
+                print("[-] No session token found.")
 
+        except Exception as e:
+            print("[-] Authentication failed:", e)
+        finally:
+            driver.quit()
+
+        return None  # Returning None if authentication fails
+
+    def getTypeDescription(self):
+        return "A custom authentication method using Selenium in Jython."
+
+    def createAuthenticationCredentials(self):
+        """
+        Creates a credentials object that stores the username and password.
+        """
+        return {"username": "", "password": ""}
