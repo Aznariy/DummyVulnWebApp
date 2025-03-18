@@ -1,1 +1,77 @@
+from org.openqa.selenium.chrome import ChromeDriver
+from org.openqa.selenium.chrome import ChromeOptions
+from org.openqa.selenium.common.by import By
+from org.openqa.selenium.common.keys import Keys
+from org.openqa.selenium.support.ui import WebDriverWait
+from org.openqa.selenium.support import expected_conditions as EC
+
+def authenticate(context, authenticationCredentials):
+    """
+    This function is required by ZAP for authentication.
+    It takes the context and authentication credentials as input.
+    """
+
+    # Extract username and password from authenticationCredentials
+    USERNAME = authenticationCredentials.getParam("username")
+    PASSWORD = authenticationCredentials.getParam("password")
+
+    # Target website
+    TARGET_LOGIN_URL = "https://example.com/login"  # Modify this
+
+    # CSS and XPATH Selectors (Modify as needed)
+    USERNAME_CSS_SELECTOR = "input#user"  # Adjust for your website
+    PASSWORD_CSS_SELECTOR = "input[type='password']"
+    SIGN_IN_XPATH = "//button[@id='sign-in']"
+    SUCCESS_ELEMENT_XPATH = "//div[@id='dashboard']"  # The element that confirms successful login
+
+    # Set Chrome Options for ZAP Proxy
+    chrome_options = ChromeOptions()
+    chrome_options.addArguments("--proxy-server=http://127.0.0.1:8080")
+    chrome_options.addArguments("--headless")  # Remove if you want to see browser actions
+
+    # Initialize WebDriver (Chrome)
+    driver = ChromeDriver(chrome_options)
+
+    try:
+        # Step 1: Open login page
+        driver.get(TARGET_LOGIN_URL)
+
+        # Step 2: Input username using CSS Selector
+        username_field = driver.findElement(By.CSS_SELECTOR, USERNAME_CSS_SELECTOR)
+        username_field.sendKeys(USERNAME)
+
+        # Step 3: Input password using CSS Selector
+        password_field = driver.findElement(By.CSS_SELECTOR, PASSWORD_CSS_SELECTOR)
+        password_field.sendKeys(PASSWORD)
+
+        # Step 4: Click the Sign In button using XPath
+        sign_in_button = driver.findElement(By.XPATH, SIGN_IN_XPATH)
+        sign_in_button.click()
+
+        # Step 5: Wait for a specific element to appear to confirm login success
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.presence_of_element_located((By.XPATH, SUCCESS_ELEMENT_XPATH)))
+
+        print("[+] Authentication successful!")
+
+        # Step 6: Retrieve session cookies (if needed)
+        cookies = driver.manage().getCookies()
+        session_token = None
+        for cookie in cookies:
+            if "session" in cookie.getName().lower():  # Modify based on actual session cookie name
+                session_token = cookie.getValue()
+                break
+
+        if session_token:
+            print("[+] Session Token:", session_token)
+            return session_token  # ZAP can use this for authenticated scanning
+        else:
+            print("[-] No session token found.")
+
+    except Exception as e:
+        print("[-] Authentication failed:", e)
+    finally:
+        driver.quit()
+
+    return None  # Returning None if authentication fails
 
