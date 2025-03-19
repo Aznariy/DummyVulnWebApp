@@ -1,0 +1,81 @@
+---
+env:
+  target: "https://example.com"
+  zap_proxy: "http://localhost:8080"
+  username: "your_username"
+  password: "your_password"
+  login_url: "https://example.com"
+
+jobs:
+  - name: "Selenium Authentication"
+    type: "selenium"
+    parameters:
+      driver: "chrome"
+      proxy: "{% zap_proxy %}"
+      script: |
+        from org.openqa.selenium import WebDriver
+        from org.openqa.selenium.chrome import ChromeDriver
+        from org.openqa.selenium.common.by import By
+        from org.openqa.selenium.common.keys import Keys
+        import time
+        from zapv2 import ZAPv2
+
+        # ZAP API Client
+        zap = ZAPv2(proxies={'http': '{% zap_proxy %}', 'https': '{% zap_proxy %}'})
+
+        # Setup WebDriver with ZAP proxy
+        options = org.openqa.selenium.chrome.ChromeOptions()
+        options.addArguments("--proxy-server={% zap_proxy %}")
+        driver = ChromeDriver(options)
+
+        try:
+            # Open login page
+            driver.get("{% login_url %}")
+            time.sleep(2)
+
+            # Enter credentials
+            username_field = driver.findElement(By.CSS, "#inputUsername")
+            password_field = driver.findElement(By.CSS, "#inputPassword")
+            login_button = driver.findElement(By.XPATH, "//button[@ng-if='!vm.isSigningIn' and @type='submit']")
+
+            username_field.sendKeys("{% username %}")
+            password_field.sendKeys("{% password %}")
+            login_button.click()
+
+            time.sleep(5)  # Wait for login to complete
+
+            # Extract cookies
+            cookies = driver.manage().getCookies()
+            for cookie in cookies:
+                zap.httpsessions.add_session_token("default", cookie.getName())
+                zap.httpsessions.set_session_token_value("default", cookie.getName(), cookie.getValue())
+
+        finally:
+            driver.quit()
+
+  - name: "Passive Scan"
+    type: "passiveScan"
+    parameters:
+      context: "Default Context"
+
+  - name: "Active Scan"
+    type: "activeScan"
+    parameters:
+      context: "Default Context"
+      user: "{% username %}"
+      recurse: true
+
+  - name: "Client Spider Scan"
+    type: "clientSpider"
+    parameters:
+      context: "Default Context"
+      user: "{% username %}"
+      browser: "chrome"  # Options: chrome, firefox, chrome-headless, firefox-headless
+      maxDuration: 5  # Time in minutes
+
+  - name: "Report Generation"
+    type: "report"
+    parameters:
+      format: "HTML"
+      filename: "zap-report.html"
+      reportDir: "/path/to/report/dir"
