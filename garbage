@@ -1,89 +1,50 @@
-import java.lang.String, jarray
-from org.openqa.selenium.chrome import ChromeDriver
-from org.openqa.selenium.chrome import ChromeOptions
-from org.openqa.selenium.common.by import By
-from org.openqa.selenium.common.keys import Keys
-from org.openqa.selenium.support.ui import WebDriverWait
-from org.openqa.selenium.support import expected_conditions as EC
+Clear-Host
 
-def authenticate(helper, paramsValues, credentials):
-    """Authenticates using a real browser via Selenium and returns the authenticated session.
+$cx_apiKey = Read-Host -Prompt "Please Enter Your Checkmarx API Key"
 
-    This function:
-    - Opens a browser
-    - Navigates to the login page
-    - Enters the username and password
-    - Clicks the login button
-    - Waits for a confirmation element to appear
-    - Closes the browser
+# Configuration
+$cx_domain = "https://us.ast.checkmarx.net"
+$cx_access_token_url = "https://us.iam.checkmarx.net/auth/realms/zayo/protocol/openid-connect/token"
 
-    Parameters:
-        helper - provides ZAP helper methods
-        paramsValues - contains authentication configuration parameters
-        credentials - contains the username and password for authentication
-    """
-    print("[+] Authenticating via Selenium in Jython...")
+# Prepare body for Checkmarx token retrieval
+$cx_body = @{
+    grant_type    = "refresh_token"
+    client_id     = "ast-app"
+    refresh_token = $cx_apiKey
+}
 
-    # Extract parameters dynamically from ZAP UI configuration
-    login_url = paramsValues.get("loginURL")  # The login page URL
-    username_css = paramsValues.get("usernameCSS")  # CSS Selector for the username field
-    password_css = paramsValues.get("passwordCSS")  # CSS Selector for the password field
-    login_button_xpath = paramsValues.get("loginButtonXPath")  # XPath for the login button
-    success_element_xpath = paramsValues.get("successElementXPath")  # XPath for element confirming login success
+# Retrieve Access Token from Checkmarx
+$GetCXAccessToken = Invoke-RestMethod -Uri $cx_access_token_url -Method Post -Body $cx_body -ContentType "application/x-www-form-urlencoded"
+$cx_header = @{ Authorization = "Bearer " + $GetCXAccessToken.access_token }
 
-    # Extract credentials dynamically
-    username = credentials.getParam("username")
-    password = credentials.getParam("password")
+$cx_scansbody = @{
+    limit      = 10000
+    offset     = 0
+    searchID   = ""
+    scanStatus = ""
+    sortBy     = ""
+} | ConvertTo-Json
 
-    # Configure Chrome to use ZAP Proxy
-    chrome_options = ChromeOptions()
-    chrome_options.addArguments("--proxy-server=http://127.0.0.1:8080")  # Route through ZAP Proxy
-    chrome_options.addArguments("--headless")  # Run browser in headless mode
+# Get project details
+$GetAllScans = Invoke-RestMethod -Uri "$cx_domain/api/scans/byFilters" -Method POST -Headers $cx_header -Body $cx_scansbody -ContentType "application/json"
 
-    # Initialize Selenium WebDriver
-    driver = ChromeDriver(chrome_options)
+$cutoffDate = (Get-Date).ToUniversalTime().AddDays(-30)
 
-    try:
-        # Step 1: Open login page
-        driver.get(login_url)
+$oldScans = $GetAllScans.scans | Where-Object {
+    ([datetime]::Parse($_.createdAt) -lt $cutoffDate) -and
+    ($_.branch -notin @('master', 'main', 'Main')) -and ($_.initiator -notlike "cxservice*")
+}
 
-        # Step 2: Find and enter username using CSS Selector
-        username_field = driver.findElement(By.CSS_SELECTOR, username_css)
-        username_field.sendKeys(username)
+$oldScans | ForEach-Object {
 
-        # Step 3: Find and enter password using CSS Selector
-        password_field = driver.findElement(By.CSS_SELECTOR, password_css)
-        password_field.sendKeys(password)
+    $scanID = $_.id
+    $projectName = $_.projectName
+    $branchName = $_.branch
 
-        # Step 4: Click the login button using XPath
-        login_button = driver.findElement(By.XPATH, login_button_xpath)
-        login_button.click()
-
-        # Step 5: Wait for the success confirmation element to appear
-        wait = WebDriverWait(driver, 10)  # Wait up to 10 seconds
-        wait.until(EC.presence_of_element_located((By.XPATH, success_element_xpath)))
-
-        print("[+] Authentication successful!")
-
-    except Exception as e:
-        print("[-] Authentication failed:", e)
-
-    finally:
-        driver.quit()  # Ensure the browser closes
-
-    return None  # ZAP requires returning None if authentication fails
-
-
-def getRequiredParamsNames():
-    """Defines the required parameters for authentication, which will be configurable in ZAP UI."""
-    return jarray.array(["loginURL", "usernameCSS", "passwordCSS", "loginButtonXPath", "successElementXPath"], java.lang.String)
-
-
-def getOptionalParamsNames():
-    """Defines optional parameters, which can be configured in ZAP but are not mandatory."""
-    return jarray.array([], java.lang.String)
-
-
-def getCredentialsParamsNames():
-    """Defines the credentials parameters, which will be set for each user in ZAP UI."""
-    return jarray.array(["username", "password"], java.lang.String)
+    try {
+        Invoke-RestMethod -Uri "$cx_domain/api/scans/$scanID" -Method DELETE -Headers $cx_header -ContentType "application/json"
+    }
+    catch {
+        Write-Host "Unable to delete the scan for project $projectName and branch $branchName"
+    }
+}
